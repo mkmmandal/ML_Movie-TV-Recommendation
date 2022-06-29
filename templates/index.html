@@ -1,0 +1,42 @@
+
+<center><h1> Movie/TV Recommendation System</h1></center>
+<form action="/" method="POST">
+    <div class="form-group shadow-textarea" style="margin-top: 30px;text-align: center;color: black;">
+        <label for="title" class="form-label"></label>
+        <input class="form-control" id="title" name="title" list="datalistOptions" autocomplete="on" placeholder="Enter the Movie Name" style="background-color: #ffffff;border-color:#ffffff;width: 60%;color: #181818" required="required" />
+        <datalist id="datalistOptions">
+            {% for movie in movies %}
+            <option value= "{{movie}}">{{movie}}</option>"
+            {% endfor %}
+        </datalist>
+        <br>
+    </div>
+    <div class="form-group" style="text-align: center;">
+      <button class="btn btn-primary btn-block movie-button" style="background-color: #e50914;text-align: center;border-color: #e50914;width:120px;" type="submit" >Submit</button><br><br>
+    </div>
+</form>
+    <br><br>
+    <div>
+        <center><h> You Selected : {{selectedMovie}}</h></center>
+
+    </div>
+<div>
+    <table class="table" align="center" title="list">
+        <thead><tr>
+            <th>
+                Movie/TV List
+            </th>
+            
+        </tr></thead>
+        <tbody>
+            
+            {% for movie in recoList %}
+            
+            <th scope="row">{{loop.index}}</th>
+            <td> <img src={{movie}} alt="error loading image" width="150" height="200"></td>
+            
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
